@@ -25,12 +25,13 @@ const images = [
   },
 ];
 
-const galleryEl = document.querySelector(".gallery");
+const listEl = document.querySelector(".gallery");
 
 const markup = images
   .map(
-    (item) => `<li><img src='${item.url}' alt='${item.alt}' width='300'></li>`
+    ({ url, alt } = images) =>
+      `<li><img src="${url}" alt="${alt}" width = 300 ></li>`
   )
   .join("");
 
-galleryEl.insertAdjacentHTML("afterbegin", markup);
+listEl.insertAdjacentHTML("afterbegin", markup);
